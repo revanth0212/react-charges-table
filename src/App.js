@@ -6,27 +6,24 @@ import ChargesTable from './Charges Table'
 const sampleData = {
   chargesConfig: [
     {
+      name: 'charge1',
       primaryText: 'Charge 1',
       secondaryText: 'Charge 1',
       disabled: false,
       value: 32,
     },
     {
+      name: 'charge2',
       primaryText: 'Charge 2',
       secondaryText: 'Charge 2',
       disabled: false,
       value: 32,
     },
     {
+      name: 'charge3',
       primaryText: 'Charge 3',
       secondaryText: 'Charge 3',
       disabled: false,
-      value: 32,
-    },
-    {
-      primaryText: 'Total',
-      secondaryText: 'Total Charge',
-      disabled: true,
       value: 32,
     },
   ],
