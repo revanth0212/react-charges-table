@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { last, propOr, compose, dropLast, add, reduce, map } from 'ramda'
 
+import './styles.css'
 import ChargesTableView from './ChargesTable.view'
 
 const calculateTotal = compose(reduce(add, 0), map(propOr(0, 'value')))
@@ -18,6 +19,7 @@ const injectTotalChargeConfig = (chargesConfig = []) => {
 class ChargesTable extends Component {
   static defaultProps = {
     chargesConfig: [],
+    currencyCode: '$',
   }
 
   constructor(props) {
@@ -41,7 +43,14 @@ class ChargesTable extends Component {
 
   render() {
     const { chargesConfig } = this.state
-    return <ChargesTableView chargesConfig={chargesConfig} onChargeChange={this.onChargeChange} />
+    const { currencyCode } = this.props
+    return (
+      <ChargesTableView
+        chargesConfig={chargesConfig}
+        onChargeChange={this.onChargeChange}
+        currencyCode={currencyCode}
+      />
+    )
   }
 }
 

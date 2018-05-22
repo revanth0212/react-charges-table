@@ -1,19 +1,21 @@
 import React from 'react'
 import ListItem from 'material-ui/List/ListItem'
-import TextField from 'material-ui/TextField'
+import CurrencyField from './CurrencyField'
 
-const ChargeRow = ({ name, primaryText, secondaryText, disabled, value, onChargeChange }) => (
+const ChargeRow = ({ name, primaryText, secondaryText, disabled, value, onChargeChange, currencyCode }) => (
   <ListItem
     key={name}
     primaryText={primaryText}
     secondaryText={secondaryText}
     disabled
+    style={{ minWidth: '350px', maxWidth: '500px' }}
     rightIcon={
-      <TextField
-        name={`${name}-charge`}
+      <CurrencyField
+        name={name}
         value={value}
         disabled={disabled}
-        onChange={(event, newValue) => onChargeChange(newValue)}
+        onChargeChange={onChargeChange}
+        currencyCode={currencyCode}
       />
     }
   />
