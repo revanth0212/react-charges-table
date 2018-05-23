@@ -19,7 +19,7 @@ const injectTotalChargeConfig = (chargesConfig = []) => {
 class ChargesTable extends Component {
   static defaultProps = {
     chargesConfig: [],
-    currencyCode: '$',
+    currencyCode: '',
   }
 
   constructor(props) {
@@ -43,12 +43,13 @@ class ChargesTable extends Component {
 
   render() {
     const { chargesConfig } = this.state
-    const { currencyCode } = this.props
+    const { currencyCode, listContainerStyle } = this.props
     return (
       <ChargesTableView
         chargesConfig={chargesConfig}
         onChargeChange={this.onChargeChange}
         currencyCode={currencyCode}
+        listContainerStyle={listContainerStyle}
       />
     )
   }

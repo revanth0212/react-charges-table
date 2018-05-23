@@ -8,15 +8,15 @@ import ChargeRow from './ChargeRow'
 
 import type { ChargesTableViewPropTypes } from './ChargesTable.types'
 
-const defaultListStyle = { minWidth: '350px', maxWidth: '500px', minHeight: '100px' }
+const defaultlistContainerStyle = { minWidth: '350px', maxWidth: '500px', minHeight: '100px' }
 
 const ChargesTableView = ({
   chargesConfig,
   onChargeChange,
   currencyCode,
-  listStyle = defaultListStyle,
+  listContainerStyle = defaultlistContainerStyle,
 }: ChargesTableViewPropTypes) => (
-  <List style={listStyle}>
+  <List style={listContainerStyle}>
     {chargesConfig.map((chargeConfig, index) => (
       <div key={chargeConfig.name}>
         <ChargeRow

@@ -42,7 +42,11 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <ChargesTable chargesConfig={sampleData.chargesConfig} currencyCode="$" />
+        <ChargesTable
+          chargesConfig={sampleData.chargesConfig}
+          currencyCode="$"
+          listContainerStyle={{ minWidth: '350px', maxWidth: '500px', minHeight: '100px' }}
+        />
       </MuiThemeProvider>
     )
   }

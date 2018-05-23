@@ -12,7 +12,7 @@ export type ChargeConfigType = {
 export type ChargesTablePropTypes = {
   chargesConfig: Array<ChargeConfigType>,
   currencyCode?: string | Node,
-  listStyle?: Object,
+  listContainerStyle?: Object,
 }
 
 export type ChargesTableViewPropTypes = {
