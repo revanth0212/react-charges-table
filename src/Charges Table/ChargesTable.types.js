@@ -4,23 +4,28 @@ export type ChargeConfigType = {
   secondaryText?: string | Node,
   disabled?: boolean,
   value: number,
+  chargeRowStyle?: Object,
+  rootTextFieldStyle?: Object,
+  chargeInputStyle?: Object,
 }
 
 export type ChargesTablePropTypes = {
   chargesConfig: Array<ChargeConfigType>,
-  currencyCode?: string,
+  currencyCode?: string | Node,
+  listStyle?: Object,
 }
 
 export type ChargesTableViewPropTypes = {
   chargesConfig: Array<ChargeConfigType>,
   onChargeChange: (id: number) => (value: number) => void,
-  currencyCode: string,
+  currencyCode: string | Node,
+  listStyle?: Object,
 }
 
 export type ChargeRowPropTypes = {
   ...ChargeConfigType,
   onChargeChange: (value: number) => void,
-  currencyCode: string,
+  currencyCode: string | Node,
 }
 
 export type CurrencyFieldPropTypes = {
@@ -29,4 +34,6 @@ export type CurrencyFieldPropTypes = {
   onChargeChange: (value: number) => void,
   disabled?: boolean,
   currencyCode: string,
+  rootTextFieldStyle?: Object,
+  chargeInputStyle?: Object,
 }

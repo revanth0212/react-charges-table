@@ -7,6 +7,8 @@ import CurrencyField from './CurrencyField'
 
 import type { ChargeRowPropTypes } from './ChargesTable.types'
 
+const defaultRowStyle = { minHeight: '40px', padding: '15px' }
+
 const ChargeRow = ({
   name,
   primaryText,
@@ -15,13 +17,15 @@ const ChargeRow = ({
   value,
   onChargeChange,
   currencyCode,
+  chargeRowStyle = defaultRowStyle,
+  chargeInputStyle,
 }: ChargeRowPropTypes) => (
   <ListItem
     key={name}
     primaryText={primaryText}
     secondaryText={secondaryText}
     disabled
-    style={{ minHeight: '40px', padding: '15px' }}
+    style={chargeRowStyle}
     rightIcon={
       <CurrencyField
         name={name}
@@ -29,6 +33,7 @@ const ChargeRow = ({
         disabled={disabled}
         onChargeChange={onChargeChange}
         currencyCode={currencyCode}
+        chargeInputStyle={chargeInputStyle}
       />
     }
   />
