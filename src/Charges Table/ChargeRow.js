@@ -1,8 +1,21 @@
+// @flow
+
 import React from 'react'
 import ListItem from 'material-ui/List/ListItem'
+
 import CurrencyField from './CurrencyField'
 
-const ChargeRow = ({ name, primaryText, secondaryText = ' ', disabled, value, onChargeChange, currencyCode }) => (
+import type { ChargeRowPropTypes } from './ChargesTable.types'
+
+const ChargeRow = ({
+  name,
+  primaryText,
+  secondaryText = '',
+  disabled,
+  value,
+  onChargeChange,
+  currencyCode,
+}: ChargeRowPropTypes) => (
   <ListItem
     key={name}
     primaryText={primaryText}

@@ -1,7 +1,11 @@
+// @flow
+
 import React from 'react'
 import TextField from 'material-ui/TextField'
 
-const CurrencyField = ({ name, value, onChargeChange, disabled, currencyCode }) => (
+import type { CurrencyFieldPropTypes } from './ChargesTable.types'
+
+const CurrencyField = ({ name, value = 0, onChargeChange, disabled = false, currencyCode }: CurrencyFieldPropTypes) => (
   <span style={{ display: 'inline', float: 'right' }}>
     {currencyCode}
     <TextField
