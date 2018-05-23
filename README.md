@@ -28,7 +28,7 @@ Make sure your app is wrapped inside `<MuiThemeProvider>` which you can import l
 | Prop | Prop Type | Default Value | isRequired | Description |
 |--|--|--|--|--|
 |`chargesConfig`|`Array<ChargesConfig>`|[]|true|Charges Config.|
-|`currencyCode`|`string Node`|''|false|List of items that will be shown in the selected list.|
+|`currencyCode`|`string / Node`|''|false|List of items that will be shown in the selected list.|
 |`listContainerStyle`|`Object`|{}|false|Will override default list container styling.|
 
 # Functions
