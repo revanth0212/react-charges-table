@@ -6,28 +6,25 @@ import ChargesTable from './Charges Table'
 const sampleData = {
   chargesConfig: [
     {
-      primaryText: 'Charge 1',
-      secondaryText: 'Charge 1',
+      name: 'chocolateDonut',
+      primaryText: 'Chocolate Donut',
+      secondaryText: 'with some sparkels',
       disabled: false,
-      value: 32,
+      value: 5,
     },
     {
-      primaryText: 'Charge 2',
-      secondaryText: 'Charge 2',
+      name: 'pizza',
+      primaryText: 'Spinach Pizza Slice',
+      secondaryText: 'Med',
       disabled: false,
-      value: 32,
+      value: 10,
     },
     {
-      primaryText: 'Charge 3',
-      secondaryText: 'Charge 3',
+      name: 'veggieBurger',
+      primaryText: 'Veggie Burger',
+      secondaryText: 'Extra Spice',
       disabled: false,
-      value: 32,
-    },
-    {
-      primaryText: 'Total',
-      secondaryText: 'Total Charge',
-      disabled: true,
-      value: 32,
+      value: 38.32,
     },
   ],
 }
@@ -36,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <ChargesTable chargesConfig={sampleData.chargesConfig} />
+        <ChargesTable chargesConfig={sampleData.chargesConfig} currencyCode="$" />
       </MuiThemeProvider>
     )
   }
