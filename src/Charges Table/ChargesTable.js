@@ -25,7 +25,7 @@ class ChargesTable extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      chargesConfig: injectTotalChargeConfig(props.chargesConfig),
+      chargesConfig: props.chargesConfig.length ? injectTotalChargeConfig(props.chargesConfig) : [],
     }
   }
 
