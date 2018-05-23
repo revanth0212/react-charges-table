@@ -1,14 +1,31 @@
+// @flow
+
 import React from 'react'
 import ListItem from 'material-ui/List/ListItem'
+
 import CurrencyField from './CurrencyField'
 
-const ChargeRow = ({ name, primaryText, secondaryText, disabled, value, onChargeChange, currencyCode }) => (
+import type { ChargeRowPropTypes } from './ChargesTable.types'
+
+const defaultRowStyle = { minHeight: '40px', padding: '15px' }
+
+const ChargeRow = ({
+  name,
+  primaryText,
+  secondaryText = ' ',
+  disabled,
+  value,
+  onChargeChange,
+  currencyCode,
+  chargeRowStyle = defaultRowStyle,
+  chargeInputStyle,
+}: ChargeRowPropTypes) => (
   <ListItem
     key={name}
     primaryText={primaryText}
     secondaryText={secondaryText}
     disabled
-    style={{ minWidth: '350px', maxWidth: '500px' }}
+    style={chargeRowStyle}
     rightIcon={
       <CurrencyField
         name={name}
@@ -16,6 +33,7 @@ const ChargeRow = ({ name, primaryText, secondaryText, disabled, value, onCharge
         disabled={disabled}
         onChargeChange={onChargeChange}
         currencyCode={currencyCode}
+        chargeInputStyle={chargeInputStyle}
       />
     }
   />
