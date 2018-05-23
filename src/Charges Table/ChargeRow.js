@@ -10,7 +10,7 @@ import type { ChargeRowPropTypes } from './ChargesTable.types'
 const ChargeRow = ({
   name,
   primaryText,
-  secondaryText = '',
+  secondaryText = ' ',
   disabled,
   value,
   onChargeChange,
@@ -21,7 +21,7 @@ const ChargeRow = ({
     primaryText={primaryText}
     secondaryText={secondaryText}
     disabled
-    style={{ minWidth: '350px', maxWidth: '500px' }}
+    style={{ minHeight: '40px', padding: '15px' }}
     rightIcon={
       <CurrencyField
         name={name}

@@ -13,11 +13,12 @@ const CurrencyField = ({ name, value = 0, onChargeChange, disabled = false, curr
       value={value}
       disabled={disabled}
       onChange={(event, newValue) => onChargeChange(newValue)}
-      style={{ paddingLeft: '10px', width: '125px', marginTop: '-10px' }}
+      style={{ paddingLeft: '10px', width: '125px' }}
       inputStyle={{
         textAlign: 'center',
         backgroundColor: 'rgba(21, 13, 187, 0.7)',
         color: 'rgba(255, 255, 255, 1)',
+        margin: '-5px',
       }}
       underlineShow={false}
       type="number"

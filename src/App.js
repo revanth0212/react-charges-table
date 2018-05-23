@@ -3,6 +3,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import ChargesTable from './Charges Table'
 
+const BananaPie = () => <div style={{ paddingTop: '5px' }}>Banana Pie</div>
+
 const sampleData = {
   chargesConfig: [
     {
@@ -27,14 +29,15 @@ const sampleData = {
       value: 38.32,
     },
     {
-      name: 'yogurt',
-      primaryText: 'Banana Yogurt',
+      name: 'bananaPie',
+      primaryText: <BananaPie />,
       disabled: false,
       value: 7,
     },
   ],
 }
 
+/* eslint-disable react/prefer-stateless-function */
 class App extends Component {
   render() {
     return (
@@ -44,5 +47,6 @@ class App extends Component {
     )
   }
 }
+/* eslint-enable react/prefer-stateless-function */
 
 export default App
