@@ -2,7 +2,7 @@ import React from 'react'
 import ListItem from 'material-ui/List/ListItem'
 import CurrencyField from './CurrencyField'
 
-const ChargeRow = ({ name, primaryText, secondaryText, disabled, value, onChargeChange, currencyCode }) => (
+const ChargeRow = ({ name, primaryText, secondaryText = ' ', disabled, value, onChargeChange, currencyCode }) => (
   <ListItem
     key={name}
     primaryText={primaryText}

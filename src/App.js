@@ -26,6 +26,12 @@ const sampleData = {
       disabled: false,
       value: 38.32,
     },
+    {
+      name: 'yogurt',
+      primaryText: 'Banana Yogurt',
+      disabled: false,
+      value: 7,
+    },
   ],
 }
 
