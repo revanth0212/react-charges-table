@@ -18,10 +18,13 @@ npm install react-charges-table
 	   }}
 	   chargesConfig={sampleData.chargesConfig}
 	   currencyCode="$"
+		 formatValue={(value) => Math.round(value)}
 	   listContainerStyle={{ minWidth: '350px', maxWidth: '500px', minHeight: '100px' }}
     />
 
 Make sure your app is wrapped inside `<MuiThemeProvider>` which you can import like this: `import  MuiThemeProvider  from  'material-ui/styles/MuiThemeProvider'`.
+
+Check out [App.js](https://github.com/revanth0212/react-charges-table/blob/master/src/App.js) for example.
 
 # Props
 
@@ -30,6 +33,7 @@ Make sure your app is wrapped inside `<MuiThemeProvider>` which you can import l
 |`chargesConfig`|`Array<ChargesConfig>`|[]|true|Charges Config.|
 |`currencyCode`|`string / Node`|''|false|Currency code string or node that will be shown to the left of the charge field.|
 |`listContainerStyle`|`Object`|{}|false|Will override default list container styling.|
+|`formatValue`|`(oldValue: number) => number`|`(v: number): number => v`|false|Will be called when a value has been changed. Has to return a number that will be used for setting the value of the charge.|
 
 # Functions
 
