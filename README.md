@@ -19,7 +19,7 @@ npm install react-charges-table
 	   chargesConfig={sampleData.chargesConfig}
 	   currencyCode="$"
 		 formatValue={(value) => Math.round(value)}
-	   listContainerStyle={{ minWidth: '350px', maxWidth: '500px', minHeight: '100px' }}
+	   listContainerStyle={{ minWidth: '350px', maxWidth: '500px', minHeight: '150px' }}
     />
 
 Make sure your app is wrapped inside `<MuiThemeProvider>` which you can import like this: `import  MuiThemeProvider  from  'material-ui/styles/MuiThemeProvider'`.
