@@ -13,13 +13,14 @@ export type ChargesTablePropTypes = {
   chargesConfig: Array<ChargeConfigType>,
   currencyCode?: string | Node,
   listContainerStyle?: Object,
+  formatCharge?: (oldValue: number) => number,
 }
 
 export type ChargesTableViewPropTypes = {
   chargesConfig: Array<ChargeConfigType>,
   onChargeChange: (id: number) => (value: number) => void,
   currencyCode: string | Node,
-  listStyle?: Object,
+  listContainerStyle?: Object,
 }
 
 export type ChargeRowPropTypes = {
