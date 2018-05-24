@@ -47,19 +47,20 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <ChargesTable
-          chargesConfig={sampleData.chargesConfig}
-          currencyCode="$"
-          formatValue={(value) => precisionRound(value, 2)}
-          listContainerStyle={{
-            margin: 'auto',
-            padding: '75px 0px',
-            minWidth: '350px',
-            maxWidth: '500px',
-            minHeight: '100px',
-          }}
-          hideDivider={false}
-        />
+        <div style={{ padding: '75px 0px' }}>
+          <ChargesTable
+            chargesConfig={sampleData.chargesConfig}
+            currencyCode="$"
+            formatValue={(value) => precisionRound(value, 2)}
+            listContainerStyle={{
+              margin: 'auto',
+              minWidth: '350px',
+              maxWidth: '500px',
+              minHeight: '100px',
+            }}
+            hideDivider={false}
+          />
+        </div>
       </MuiThemeProvider>
     )
   }

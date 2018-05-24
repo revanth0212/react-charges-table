@@ -12,12 +12,14 @@ type ChargesTableStateTypes = {
   chargesConfig: Array<ChargeConfigType>,
 }
 
+const Total = () => <div style={{ paddingTop: '7px' }}>Total</div>
+
 const calculateTotal = compose(reduce(add, 0), map(propOr(0, 'value')))
 
 const injectTotalChargeConfig = (chargesConfig = []) => {
   chargesConfig.push({
     name: 'total',
-    primaryText: 'Total',
+    primaryText: <Total />,
     disabled: true,
     value: calculateTotal(chargesConfig),
   })

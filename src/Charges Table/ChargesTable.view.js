@@ -28,7 +28,7 @@ const ChargesTableView = ({
           onChargeChange={onChargeChange(index)}
           currencyCode={currencyCode}
         />
-        {renderIf(!hideDivider)(<Divider style={dividerStyle} />)}
+        {renderIf(!hideDivider && index !== chargesConfig.length - 1)(<Divider style={dividerStyle} />)}
       </div>
     ))}
   </List>
