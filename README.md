@@ -18,7 +18,7 @@ npm install react-charges-table
 	   }}
 	   chargesConfig={sampleData.chargesConfig}
 	   currencyCode="$"
-		 formatCharge={(value) => Math.round(value)}
+		 formatValue={(value) => Math.round(value)}
 	   listContainerStyle={{ minWidth: '350px', maxWidth: '500px', minHeight: '100px' }}
     />
 

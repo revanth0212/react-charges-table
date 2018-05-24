@@ -28,7 +28,7 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
   static defaultProps = {
     chargesConfig: [],
     currencyCode: '',
-    formatCharge: (value: number): number => value,
+    formatValue: (value: number): number => value,
   }
 
   constructor(props: ChargesTablePropTypes) {
@@ -39,11 +39,11 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
   }
 
   onChargeChange = (index: number) => (oldValue: number = 0) => {
-    const { formatCharge } = this.props
-    const value = formatCharge(oldValue)
+    const { formatValue } = this.props
+    const value = formatValue(oldValue)
     const chargesConfig = [...this.state.chargesConfig]
     chargesConfig[index].value = value
-    const newTotal = compose(formatCharge, calculateTotal, dropLast(1))(chargesConfig)
+    const newTotal = compose(formatValue, calculateTotal, dropLast(1))(chargesConfig)
     chargesConfig[chargesConfig.length - 1].value = newTotal
     this.setState({ chargesConfig })
   }

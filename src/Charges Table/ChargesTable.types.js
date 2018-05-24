@@ -13,7 +13,7 @@ export type ChargesTablePropTypes = {
   chargesConfig: Array<ChargeConfigType>,
   currencyCode?: string | Node,
   listContainerStyle?: Object,
-  formatCharge?: (oldValue: number) => number,
+  formatValue?: (oldValue: number) => number,
 }
 
 export type ChargesTableViewPropTypes = {

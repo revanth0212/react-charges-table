@@ -50,7 +50,7 @@ class App extends Component {
         <ChargesTable
           chargesConfig={sampleData.chargesConfig}
           currencyCode="$"
-          formatCharge={(value) => precisionRound(value, 2)}
+          formatValue={(value) => precisionRound(value, 2)}
           listContainerStyle={{ minWidth: '350px', maxWidth: '500px', minHeight: '100px' }}
         />
       </MuiThemeProvider>
