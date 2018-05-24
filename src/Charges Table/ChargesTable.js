@@ -54,13 +54,15 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
 
   render() {
     const { chargesConfig } = this.state
-    const { currencyCode, listContainerStyle } = this.props
+    const { currencyCode, listContainerStyle, hideDivider, dividerStyle } = this.props
     return (
       <ChargesTableView
         chargesConfig={chargesConfig}
         onChargeChange={this.onChargeChange}
         currencyCode={currencyCode}
         listContainerStyle={listContainerStyle}
+        hideDivider={hideDivider}
+        dividerStyle={dividerStyle}
       />
     )
   }

@@ -51,7 +51,14 @@ class App extends Component {
           chargesConfig={sampleData.chargesConfig}
           currencyCode="$"
           formatValue={(value) => precisionRound(value, 2)}
-          listContainerStyle={{ minWidth: '350px', maxWidth: '500px', minHeight: '100px' }}
+          listContainerStyle={{
+            margin: 'auto',
+            padding: '75px 0px',
+            minWidth: '350px',
+            maxWidth: '500px',
+            minHeight: '100px',
+          }}
+          hideDivider={false}
         />
       </MuiThemeProvider>
     )

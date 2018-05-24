@@ -14,6 +14,8 @@ export type ChargesTablePropTypes = {
   currencyCode?: string | Node,
   listContainerStyle?: Object,
   formatValue?: (oldValue: number) => number,
+  hideDivider?: boolean,
+  dividerStyle?: Object,
 }
 
 export type ChargesTableViewPropTypes = {
@@ -21,6 +23,8 @@ export type ChargesTableViewPropTypes = {
   onChargeChange: (id: number) => (value: number) => void,
   currencyCode: string | Node,
   listContainerStyle?: Object,
+  hideDivider?: boolean,
+  dividerStyle?: Object,
 }
 
 export type ChargeRowPropTypes = {
