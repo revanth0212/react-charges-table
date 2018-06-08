@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-import ChargesTable from './Charges Table'
+import ChargesTable from './ChargesTable'
 
 const BananaPie = () => <div style={{ paddingTop: '5px' }}>Banana Pie</div>
 
