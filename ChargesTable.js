@@ -28,6 +28,14 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var Total = function Total() {
+  return _react2.default.createElement(
+    'div',
+    { style: { paddingTop: '7px' } },
+    'Total'
+  );
+};
+
 var calculateTotal = (0, _ramda.compose)((0, _ramda.reduce)(_ramda.add, 0), (0, _ramda.map)((0, _ramda.propOr)(0, 'value')));
 
 var injectTotalChargeConfig = function injectTotalChargeConfig() {
@@ -35,7 +43,7 @@ var injectTotalChargeConfig = function injectTotalChargeConfig() {
 
   chargesConfig.push({
     name: 'total',
-    primaryText: 'Total',
+    primaryText: _react2.default.createElement(Total, null),
     disabled: true,
     value: calculateTotal(chargesConfig)
   });
@@ -52,11 +60,13 @@ var ChargesTable = function (_Component) {
 
     _this.onChargeChange = function (index) {
       return function () {
-        var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+        var oldValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+        var formatValue = _this.props.formatValue;
 
+        var value = formatValue(oldValue);
         var chargesConfig = [].concat(_toConsumableArray(_this.state.chargesConfig));
         chargesConfig[index].value = value;
-        var newTotal = calculateTotal((0, _ramda.dropLast)(1, chargesConfig));
+        var newTotal = (0, _ramda.compose)(formatValue, calculateTotal, (0, _ramda.dropLast)(1))(chargesConfig);
         chargesConfig[chargesConfig.length - 1].value = newTotal;
         _this.setState({ chargesConfig: chargesConfig });
       };
@@ -82,13 +92,17 @@ var ChargesTable = function (_Component) {
       var chargesConfig = this.state.chargesConfig;
       var _props = this.props,
           currencyCode = _props.currencyCode,
-          listContainerStyle = _props.listContainerStyle;
+          listContainerStyle = _props.listContainerStyle,
+          hideDivider = _props.hideDivider,
+          dividerStyle = _props.dividerStyle;
 
       return _react2.default.createElement(_ChargesTable2.default, {
         chargesConfig: chargesConfig,
         onChargeChange: this.onChargeChange,
         currencyCode: currencyCode,
-        listContainerStyle: listContainerStyle
+        listContainerStyle: listContainerStyle,
+        hideDivider: hideDivider,
+        dividerStyle: dividerStyle
       });
     }
   }]);
@@ -98,6 +112,9 @@ var ChargesTable = function (_Component) {
 
 ChargesTable.defaultProps = {
   chargesConfig: [],
-  currencyCode: ''
+  currencyCode: '',
+  formatValue: function formatValue(value) {
+    return value;
+  }
 };
 exports.default = ChargesTable;
