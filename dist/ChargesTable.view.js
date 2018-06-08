@@ -18,6 +18,10 @@ var _Divider = require('material-ui/Divider');
 
 var _Divider2 = _interopRequireDefault(_Divider);
 
+var _renderIf = require('render-if');
+
+var _renderIf2 = _interopRequireDefault(_renderIf);
+
 var _ChargeRow = require('./ChargeRow');
 
 var _ChargeRow2 = _interopRequireDefault(_ChargeRow);
@@ -31,7 +35,11 @@ var ChargesTableView = function ChargesTableView(_ref) {
       onChargeChange = _ref.onChargeChange,
       currencyCode = _ref.currencyCode,
       _ref$listContainerSty = _ref.listContainerStyle,
-      listContainerStyle = _ref$listContainerSty === undefined ? defaultlistContainerStyle : _ref$listContainerSty;
+      listContainerStyle = _ref$listContainerSty === undefined ? defaultlistContainerStyle : _ref$listContainerSty,
+      _ref$hideDivider = _ref.hideDivider,
+      hideDivider = _ref$hideDivider === undefined ? false : _ref$hideDivider,
+      _ref$dividerStyle = _ref.dividerStyle,
+      dividerStyle = _ref$dividerStyle === undefined ? {} : _ref$dividerStyle;
   return _react2.default.createElement(
     _List2.default,
     { style: listContainerStyle },
@@ -45,7 +53,7 @@ var ChargesTableView = function ChargesTableView(_ref) {
           onChargeChange: onChargeChange(index),
           currencyCode: currencyCode
         })),
-        _react2.default.createElement(_Divider2.default, null)
+        (0, _renderIf2.default)(!hideDivider && index !== chargesConfig.length - 1)(_react2.default.createElement(_Divider2.default, { style: dividerStyle }))
       );
     })
   );
