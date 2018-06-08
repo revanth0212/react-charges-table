@@ -37,16 +37,30 @@ const sampleData = {
   ],
 }
 
+function precisionRound(number, precision) {
+  const factor = 10 ** precision
+  return Math.round(number * factor) / factor
+}
+
 /* eslint-disable react/prefer-stateless-function */
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <ChargesTable
-          chargesConfig={sampleData.chargesConfig}
-          currencyCode="$"
-          listContainerStyle={{ minWidth: '350px', maxWidth: '500px', minHeight: '100px' }}
-        />
+        <div style={{ padding: '75px 0px' }}>
+          <ChargesTable
+            chargesConfig={sampleData.chargesConfig}
+            currencyCode="$"
+            formatValue={(value) => precisionRound(value, 2)}
+            listContainerStyle={{
+              margin: 'auto',
+              minWidth: '350px',
+              maxWidth: '500px',
+              minHeight: '100px',
+            }}
+            hideDivider={false}
+          />
+        </div>
       </MuiThemeProvider>
     )
   }
