@@ -91,13 +91,14 @@ var ChargesTable = function (_Component) {
   _createClass(ChargesTable, [{
     key: 'render',
     value: function render() {
-      var chargesConfig = this.state.chargesConfig;
       var _props = this.props,
           currencyCode = _props.currencyCode,
           listContainerStyle = _props.listContainerStyle,
           hideDivider = _props.hideDivider,
-          dividerStyle = _props.dividerStyle;
+          dividerStyle = _props.dividerStyle,
+          hideTotal = _props.hideTotal;
 
+      var chargesConfig = hideTotal ? (0, _ramda.dropLast)(1, this.state.chargesConfig) : this.state.chargesConfig;
       return _react2.default.createElement(_ChargesTable2.default, {
         chargesConfig: chargesConfig,
         onChargeChange: this.onChargeChange,
@@ -118,6 +119,7 @@ ChargesTable.defaultProps = {
   formatValue: function formatValue(value) {
     return value;
   },
-  totalLabel: 'Total'
+  totalLabel: 'Total',
+  hideTotal: false
 };
 exports.default = ChargesTable;
