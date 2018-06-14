@@ -60,6 +60,7 @@ class App extends Component {
             }}
             hideDivider={false}
             totalLabel="Final Total"
+            hideTotal={false}
           />
         </div>
       </MuiThemeProvider>

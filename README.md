@@ -38,6 +38,7 @@ Check out [App.js](https://github.com/revanth0212/react-charges-table/blob/maste
 | `dividerStyle`       | `Object`                       | {}                         | false      | Will override the default divider styling.                                                                                  |
 | `formatValue`        | `(oldValue: number) => number` | `(v: number): number => v` | false      | Will be called when a value has been changed. Has to return a number that will be used for setting the value of the charge. |
 | `totalLabel`         | `string`                       | `Total`                    | false      | String that will be used as a label for the total field.                                                                    |
+| `hideTotal`          | `boolean`                      | false                      | false      | If set will hide the total field from the charges table.                                                                    |
 
 # Functions
 
