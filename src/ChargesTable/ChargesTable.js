@@ -12,14 +12,14 @@ type ChargesTableStateTypes = {
   chargesConfig: Array<ChargeConfigType>,
 }
 
-const Total = () => <div style={{ paddingTop: '7px' }}>Total</div>
+const Total = ({ label }) => <div style={{ paddingTop: '7px' }}>{label}</div>
 
 const calculateTotal = compose(reduce(add, 0), map(propOr(0, 'value')))
 
-const injectTotalChargeConfig = (chargesConfig = []) => {
+const injectTotalChargeConfig = (chargesConfig = [], totalLabel) => {
   chargesConfig.push({
     name: 'total',
-    primaryText: <Total />,
+    primaryText: <Total label={totalLabel} />,
     disabled: true,
     value: calculateTotal(chargesConfig),
   })
@@ -31,12 +31,13 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
     chargesConfig: [],
     currencyCode: '',
     formatValue: (value: number): number => value,
+    totalLabel: 'Total',
   }
 
   constructor(props: ChargesTablePropTypes) {
     super(props)
     this.state = {
-      chargesConfig: props.chargesConfig.length ? injectTotalChargeConfig(props.chargesConfig) : [],
+      chargesConfig: props.chargesConfig.length ? injectTotalChargeConfig(props.chargesConfig, props.totalLabel) : [],
     }
   }
 

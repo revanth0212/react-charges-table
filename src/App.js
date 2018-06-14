@@ -59,6 +59,7 @@ class App extends Component {
               minHeight: '100px',
             }}
             hideDivider={false}
+            totalLabel="Final Total"
           />
         </div>
       </MuiThemeProvider>

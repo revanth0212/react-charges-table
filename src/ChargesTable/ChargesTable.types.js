@@ -16,6 +16,7 @@ export type ChargesTablePropTypes = {
   formatValue?: (oldValue: number) => number,
   hideDivider?: boolean,
   dividerStyle?: Object,
+  totalLabel?: string,
 }
 
 export type ChargesTableViewPropTypes = {

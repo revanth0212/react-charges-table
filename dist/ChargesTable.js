@@ -28,11 +28,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Total = function Total() {
+var Total = function Total(_ref) {
+  var label = _ref.label;
   return _react2.default.createElement(
     'div',
     { style: { paddingTop: '7px' } },
-    'Total'
+    label
   );
 };
 
@@ -40,10 +41,11 @@ var calculateTotal = (0, _ramda.compose)((0, _ramda.reduce)(_ramda.add, 0), (0, 
 
 var injectTotalChargeConfig = function injectTotalChargeConfig() {
   var chargesConfig = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var totalLabel = arguments[1];
 
   chargesConfig.push({
     name: 'total',
-    primaryText: _react2.default.createElement(Total, null),
+    primaryText: _react2.default.createElement(Total, { label: totalLabel }),
     disabled: true,
     value: calculateTotal(chargesConfig)
   });
@@ -81,7 +83,7 @@ var ChargesTable = function (_Component) {
     };
 
     _this.state = {
-      chargesConfig: props.chargesConfig.length ? injectTotalChargeConfig(props.chargesConfig) : []
+      chargesConfig: props.chargesConfig.length ? injectTotalChargeConfig(props.chargesConfig, props.totalLabel) : []
     };
     return _this;
   }
@@ -115,6 +117,7 @@ ChargesTable.defaultProps = {
   currencyCode: '',
   formatValue: function formatValue(value) {
     return value;
-  }
+  },
+  totalLabel: 'Total'
 };
 exports.default = ChargesTable;
