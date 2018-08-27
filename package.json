@@ -23,7 +23,7 @@
     "build":
       "SET NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src/ChargesTable --out-dir dist --copy-files",
     "build:mac":
-      "NODE_ENV=production && rm -rf dist && mkdir dist && npx babel-cli src/ListSelector --out-dir dist --copy-files",
+      "NODE_ENV=production && rm -rf dist && mkdir dist && npx babel-cli src/ChargesTable --out-dir dist --copy-files",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "flow": "flow",
