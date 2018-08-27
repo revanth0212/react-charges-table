@@ -61,6 +61,11 @@ class App extends Component {
             hideDivider={false}
             totalLabel="Final Total"
             hideTotal={false}
+            onChargeChange={(newChargesConfig) => {
+              console.group('Charge Changed')
+              console.log(newChargesConfig)
+              console.groupEnd('Charge Changed')
+            }}
           />
         </div>
       </MuiThemeProvider>

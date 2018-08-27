@@ -18,6 +18,7 @@ export type ChargesTablePropTypes = {
   dividerStyle?: Object,
   totalLabel?: string,
   hideTotal?: boolean,
+  onChargeChange?: () => Array<ChargeConfigType>,
 }
 
 export type ChargesTableViewPropTypes = {
