@@ -1,6 +1,6 @@
 {
   "name": "react-charges-table",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "private": false,
   "homepage": "https://revanth0212.github.io/react-charges-table/",
   "main": "dist/index.js",
@@ -13,17 +13,15 @@
     "flow-bin": "^0.72.0",
     "material-ui": "^0.20.1",
     "ramda": "^0.25.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react": "15.6.2",
+    "react-dom": "15.6.2",
     "react-scripts": "1.1.4",
     "render-if": "^0.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build":
-      "SET NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src/ChargesTable --out-dir dist --copy-files",
-    "build:mac":
-      "NODE_ENV=production && rm -rf dist && mkdir dist && npx babel-cli src/ChargesTable --out-dir dist --copy-files",
+    "build": "SET NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src/ChargesTable --out-dir dist --copy-files",
+    "build:mac": "NODE_ENV=production && rm -rf dist && mkdir dist && npx babel-cli src/ChargesTable --out-dir dist --copy-files",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "flow": "flow",
@@ -45,6 +43,10 @@
     "gh-pages": "^1.1.0"
   },
   "babel": {
-    "presets": ["react", "env", "stage-2"]
+    "presets": [
+      "react",
+      "env",
+      "stage-2"
+    ]
   }
 }
