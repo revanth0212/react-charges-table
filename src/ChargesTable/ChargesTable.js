@@ -50,9 +50,8 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
     chargesConfig[index].value = value
     const newTotal = compose(formatValue, calculateTotal, dropLast(1))(chargesConfig)
     chargesConfig[chargesConfig.length - 1].value = newTotal
-    this.setState({ chargesConfig }, () => {
-      this.props.onChargeChange(this.state.chargesConfig)
-    })
+    this.setState({ chargesConfig })
+    this.props.onChargeChange(chargesConfig)
   }
 
   getCharges = () => dropLast(1, this.state.chargesConfig)
