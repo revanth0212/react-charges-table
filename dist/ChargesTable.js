@@ -70,7 +70,9 @@ var ChargesTable = function (_Component) {
         chargesConfig[index].value = value;
         var newTotal = (0, _ramda.compose)(formatValue, calculateTotal, (0, _ramda.dropLast)(1))(chargesConfig);
         chargesConfig[chargesConfig.length - 1].value = newTotal;
-        _this.setState({ chargesConfig: chargesConfig });
+        _this.setState({ chargesConfig: chargesConfig }, function () {
+          _this.props.onChargeChange(_this.state.chargesConfig);
+        });
       };
     };
 
@@ -120,6 +122,9 @@ ChargesTable.defaultProps = {
     return value;
   },
   totalLabel: 'Total',
-  hideTotal: false
+  hideTotal: false,
+  onChargeChange: function onChargeChange() {
+    return [];
+  }
 };
 exports.default = ChargesTable;
