@@ -34,6 +34,8 @@ Check out [App.js](https://github.com/revanth0212/react-charges-table/blob/maste
 | `chargesConfig`      | `Array<ChargesConfig>`         | []                         | true       | Charges Config.                                                                                                             |
 | `currencyCode`       | `string / Node`                | ''                         | false      | Currency code string or node that will be shown to the left of the charge field.                                            |
 | `listContainerStyle` | `Object`                       | {}                         | false      | Will override default list container styling.                                                                               |
+| `onChargeChange`        | `(updatedChargesConfig: Array<ChargesConfig>) => void`                      | `() => []`                      | false      | Will be called everytime a charge has been changed. Will be called with the updated charges config.            
+
 | `hideDivider`        | `boolean`                      | false                      | false      | If set will hide the divider after each row.                                                                                |
 | `dividerStyle`       | `Object`                       | {}                         | false      | Will override the default divider styling.                                                                                  |
 | `formatValue`        | `(oldValue: number) => number` | `(v: number): number => v` | false      | Will be called when a value has been changed. Has to return a number that will be used for setting the value of the charge. |
