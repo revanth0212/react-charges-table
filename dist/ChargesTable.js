@@ -90,6 +90,13 @@ var ChargesTable = function (_Component) {
   }
 
   _createClass(ChargesTable, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(newProps) {
+      this.setState({
+        chargesConfig: newProps.chargesConfig.length ? injectTotalChargeConfig(newProps.chargesConfig, newProps.totalLabel) : []
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,

@@ -43,6 +43,14 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
     }
   }
 
+  componentWillReceiveProps(newProps: ChargesTablePropTypes) {
+    this.setState({
+      chargesConfig: newProps.chargesConfig.length
+        ? injectTotalChargeConfig(newProps.chargesConfig, newProps.totalLabel)
+        : [],
+    })
+  }
+
   onChargeChange = (index: number) => (oldValue: number = 0) => {
     const { formatValue } = this.props
     const value = formatValue(oldValue)
