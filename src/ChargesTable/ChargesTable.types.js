@@ -19,6 +19,7 @@ export type ChargesTablePropTypes = {
   totalLabel?: string,
   hideTotal?: boolean,
   onChargeChange?: () => Array<ChargeConfigType>,
+  totalFieldName?: string,
 }
 
 export type ChargesTableViewPropTypes = {

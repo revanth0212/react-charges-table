@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react'
-import { last, propOr, compose, dropLast, add, reduce, map } from 'ramda'
+import { last, propOr, compose, dropLast, add, reduce, map, propEq, find } from 'ramda'
 
 import './styles.css'
 import ChargesTableView from './ChargesTable.view'
@@ -12,19 +12,20 @@ type ChargesTableStateTypes = {
   chargesConfig: Array<ChargeConfigType>,
 }
 
-const Total = ({ label }) => <div style={{ paddingTop: '7px' }}>{label}</div>
-
 const calculateTotal = compose(reduce(add, 0), map(propOr(0, 'value')))
 
-const injectTotalChargeConfig = (chargesConfig = [], totalLabel) => {
-  chargesConfig.push({
-    name: 'total',
-    primaryText: <Total label={totalLabel} />,
-    disabled: true,
-    value: calculateTotal(chargesConfig),
-  })
-  return chargesConfig
-}
+const checkAndInjectTotal = (chargesConfig = [], totalLabel, totalFieldName) =>
+  (find(propEq('name', totalFieldName))(chargesConfig)
+    ? [...chargesConfig]
+    : [
+      ...chargesConfig,
+      {
+        name: totalFieldName,
+        primaryText: totalLabel,
+        disabled: true,
+        value: calculateTotal(chargesConfig),
+      },
+    ])
 
 class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTypes> {
   static defaultProps = {
@@ -32,6 +33,7 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
     currencyCode: '',
     formatValue: (value: number): number => value,
     totalLabel: 'Total',
+    totalFieldName: 'total',
     hideTotal: false,
     onChargeChange: () => [],
   }
@@ -39,14 +41,16 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
   constructor(props: ChargesTablePropTypes) {
     super(props)
     this.state = {
-      chargesConfig: props.chargesConfig.length ? injectTotalChargeConfig(props.chargesConfig, props.totalLabel) : [],
+      chargesConfig: props.chargesConfig.length
+        ? checkAndInjectTotal(props.chargesConfig, props.totalLabel, props.totalFieldName)
+        : [],
     }
   }
 
   componentWillReceiveProps(newProps: ChargesTablePropTypes) {
     this.setState({
       chargesConfig: newProps.chargesConfig.length
-        ? injectTotalChargeConfig(newProps.chargesConfig, newProps.totalLabel)
+        ? checkAndInjectTotal(newProps.chargesConfig, newProps.totalLabel, newProps.totalFieldName)
         : [],
     })
   }
