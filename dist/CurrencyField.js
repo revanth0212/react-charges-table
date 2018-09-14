@@ -22,6 +22,10 @@ var defaultChargeInputStyle = {
 
 var defaultRootTextFieldStyle = { paddingLeft: '10px', width: '125px', margin: '-5px' };
 
+var convertValueToNumber = function convertValueToNumber(value) {
+  return Number(value) || 0;
+};
+
 var CurrencyField = function CurrencyField(_ref) {
   var name = _ref.name,
       _ref$value = _ref.value,
@@ -43,12 +47,11 @@ var CurrencyField = function CurrencyField(_ref) {
       value: value,
       disabled: disabled,
       onChange: function onChange(event, newValue) {
-        return onChargeChange(newValue);
+        return onChargeChange(convertValueToNumber(newValue));
       },
       style: rootTextFieldStyle,
       inputStyle: chargeInputStyle,
-      underlineShow: false,
-      type: 'number'
+      underlineShow: false
     })
   );
 };
