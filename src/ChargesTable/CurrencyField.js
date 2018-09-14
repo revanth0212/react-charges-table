@@ -13,6 +13,8 @@ const defaultChargeInputStyle = {
 
 const defaultRootTextFieldStyle = { paddingLeft: '10px', width: '125px', margin: '-5px' }
 
+const convertValueToNumber = (value: any) => Number(value) || 0
+
 const CurrencyField = ({
   name,
   value = 0,
@@ -28,11 +30,10 @@ const CurrencyField = ({
       name={`${name}-charge`}
       value={value}
       disabled={disabled}
-      onChange={(event, newValue) => onChargeChange(newValue)}
+      onChange={(event, newValue) => onChargeChange(convertValueToNumber(newValue))}
       style={rootTextFieldStyle}
       inputStyle={chargeInputStyle}
       underlineShow={false}
-      type="number"
     />
   </span>
 )
