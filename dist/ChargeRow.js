@@ -31,7 +31,9 @@ var ChargeRow = function ChargeRow(_ref) {
       currencyCode = _ref.currencyCode,
       _ref$chargeRowStyle = _ref.chargeRowStyle,
       chargeRowStyle = _ref$chargeRowStyle === undefined ? defaultRowStyle : _ref$chargeRowStyle,
-      chargeInputStyle = _ref.chargeInputStyle;
+      chargeInputStyle = _ref.chargeInputStyle,
+      mask = _ref.mask,
+      precision = _ref.precision;
   return _react2.default.createElement(_ListItem2.default, {
     key: name,
     primaryText: primaryText,
@@ -44,7 +46,9 @@ var ChargeRow = function ChargeRow(_ref) {
       disabled: disabled,
       onChargeChange: onChargeChange,
       currencyCode: currencyCode,
-      chargeInputStyle: chargeInputStyle
+      chargeInputStyle: chargeInputStyle,
+      mask: mask,
+      precision: precision
     })
   });
 };
