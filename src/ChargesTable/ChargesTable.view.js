@@ -18,6 +18,8 @@ const ChargesTableView = ({
   listContainerStyle = defaultlistContainerStyle,
   hideDivider = false,
   dividerStyle = {},
+  mask,
+  precision,
 }: ChargesTableViewPropTypes) => (
   <List style={listContainerStyle}>
     {chargesConfig.map((chargeConfig, index) => (
@@ -27,6 +29,8 @@ const ChargesTableView = ({
           {...chargeConfig}
           onChargeChange={onChargeChange(index)}
           currencyCode={currencyCode}
+          mask={mask}
+          precision={precision}
         />
         {renderIf(!hideDivider && index !== chargesConfig.length - 1)(<Divider style={dividerStyle} />)}
       </div>

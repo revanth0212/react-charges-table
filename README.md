@@ -42,6 +42,8 @@ Check out [App.js](https://github.com/revanth0212/react-charges-table/blob/maste
 | `totalLabel`         | `string`                       | `Total`                    | false      | String that will be used as a label for the total field.                                                                    |
 | `hideTotal`          | `boolean`                      | false                      | false      | If set will hide the total field from the charges table.                                                                    |
 | `totalFieldName`          | `string`                      | `total`                      | false      | String that will be used as the name of the total object in the charges config.                                       |
+| `mask`          | `string`                      | `#`                      | false      | String that will be used to mask the value. For instance `#.00` displays `12345` as `123.45` or `$ #.00` displays `12345` as `$ 123.45` For more information check out [string-mask](https://www.npmjs.com/package/string-mask) about how to write masks.                                     |
+| `precision`          | `number`                      | `0`                      | false      | Number that represents to what precision should the value be processed.                                       |
 
 # Functions
 

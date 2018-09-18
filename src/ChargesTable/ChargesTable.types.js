@@ -20,6 +20,8 @@ export type ChargesTablePropTypes = {
   hideTotal?: boolean,
   onChargeChange?: () => Array<ChargeConfigType>,
   totalFieldName?: string,
+  mask: string,
+  precision: number,
 }
 
 export type ChargesTableViewPropTypes = {
@@ -29,12 +31,16 @@ export type ChargesTableViewPropTypes = {
   listContainerStyle?: Object,
   hideDivider?: boolean,
   dividerStyle?: Object,
+  mask: string,
+  precision: number,
 }
 
 export type ChargeRowPropTypes = {
   ...ChargeConfigType,
   onChargeChange: (value: number) => void,
   currencyCode: string | Node,
+  mask: string,
+  precision: number,
 }
 
 export type CurrencyFieldPropTypes = {
@@ -45,4 +51,6 @@ export type CurrencyFieldPropTypes = {
   currencyCode: string,
   rootTextFieldStyle?: Object,
   chargeInputStyle?: Object,
+  mask: string,
+  precision: number,
 }
