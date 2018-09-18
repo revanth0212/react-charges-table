@@ -39,7 +39,9 @@ var ChargesTableView = function ChargesTableView(_ref) {
       _ref$hideDivider = _ref.hideDivider,
       hideDivider = _ref$hideDivider === undefined ? false : _ref$hideDivider,
       _ref$dividerStyle = _ref.dividerStyle,
-      dividerStyle = _ref$dividerStyle === undefined ? {} : _ref$dividerStyle;
+      dividerStyle = _ref$dividerStyle === undefined ? {} : _ref$dividerStyle,
+      mask = _ref.mask,
+      precision = _ref.precision;
   return _react2.default.createElement(
     _List2.default,
     { style: listContainerStyle },
@@ -51,7 +53,9 @@ var ChargesTableView = function ChargesTableView(_ref) {
           key: chargeConfig.name
         }, chargeConfig, {
           onChargeChange: onChargeChange(index),
-          currencyCode: currencyCode
+          currencyCode: currencyCode,
+          mask: mask,
+          precision: precision
         })),
         (0, _renderIf2.default)(!hideDivider && index !== chargesConfig.length - 1)(_react2.default.createElement(_Divider2.default, { style: dividerStyle }))
       );

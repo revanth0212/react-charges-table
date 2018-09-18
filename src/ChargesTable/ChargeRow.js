@@ -19,6 +19,8 @@ const ChargeRow = ({
   currencyCode,
   chargeRowStyle = defaultRowStyle,
   chargeInputStyle,
+  mask,
+  precision,
 }: ChargeRowPropTypes) => (
   <ListItem
     key={name}
@@ -34,6 +36,8 @@ const ChargeRow = ({
         onChargeChange={onChargeChange}
         currencyCode={currencyCode}
         chargeInputStyle={chargeInputStyle}
+        mask={mask}
+        precision={precision}
       />
     }
   />

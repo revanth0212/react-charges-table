@@ -94,7 +94,9 @@ var ChargesTable = function (_Component) {
           listContainerStyle = _props.listContainerStyle,
           hideDivider = _props.hideDivider,
           dividerStyle = _props.dividerStyle,
-          hideTotal = _props.hideTotal;
+          hideTotal = _props.hideTotal,
+          mask = _props.mask,
+          precision = _props.precision;
 
       var chargesConfig = hideTotal ? (0, _ramda.dropLast)(1, this.state.chargesConfig) : this.state.chargesConfig;
       return _react2.default.createElement(_ChargesTable2.default, {
@@ -103,7 +105,9 @@ var ChargesTable = function (_Component) {
         currencyCode: currencyCode,
         listContainerStyle: listContainerStyle,
         hideDivider: hideDivider,
-        dividerStyle: dividerStyle
+        dividerStyle: dividerStyle,
+        mask: mask,
+        precision: precision
       });
     }
   }]);
@@ -122,6 +126,8 @@ ChargesTable.defaultProps = {
   hideTotal: false,
   onChargeChange: function onChargeChange() {
     return [];
-  }
+  },
+  mask: '#',
+  precision: 0
 };
 exports.default = ChargesTable;

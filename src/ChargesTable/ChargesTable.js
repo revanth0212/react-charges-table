@@ -36,6 +36,8 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
     totalFieldName: 'total',
     hideTotal: false,
     onChargeChange: () => [],
+    mask: '#',
+    precision: 0,
   }
 
   constructor(props: ChargesTablePropTypes) {
@@ -71,7 +73,7 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
   getTotal = () => compose(propOr(0, 'value'), last)(this.state.chargesConfig)
 
   render() {
-    const { currencyCode, listContainerStyle, hideDivider, dividerStyle, hideTotal } = this.props
+    const { currencyCode, listContainerStyle, hideDivider, dividerStyle, hideTotal, mask, precision } = this.props
     const chargesConfig = hideTotal ? dropLast(1, this.state.chargesConfig) : this.state.chargesConfig
     return (
       <ChargesTableView
@@ -81,6 +83,8 @@ class ChargesTable extends Component<ChargesTablePropTypes, ChargesTableStateTyp
         listContainerStyle={listContainerStyle}
         hideDivider={hideDivider}
         dividerStyle={dividerStyle}
+        mask={mask}
+        precision={precision}
       />
     )
   }

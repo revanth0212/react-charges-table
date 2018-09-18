@@ -12,7 +12,7 @@ const sampleData = {
       primaryText: 'Chocolate Donut',
       secondaryText: 'with some sparkels',
       disabled: false,
-      value: 5,
+      value: 76.1,
     },
     {
       name: 'pizza',
@@ -37,11 +37,6 @@ const sampleData = {
   ],
 }
 
-function precisionRound(number, precision) {
-  const factor = 10 ** precision
-  return Math.round(number * factor) / factor
-}
-
 /* eslint-disable react/prefer-stateless-function */
 class App extends Component {
   render() {
@@ -51,7 +46,7 @@ class App extends Component {
           <ChargesTable
             chargesConfig={sampleData.chargesConfig}
             currencyCode="$"
-            formatValue={(value) => precisionRound(value, 2)}
+            formatValue={(value) => value}
             listContainerStyle={{
               margin: 'auto',
               minWidth: '350px',
@@ -61,6 +56,8 @@ class App extends Component {
             hideDivider={false}
             totalLabel="Final Total"
             hideTotal={false}
+            mask="#.00"
+            precision={2}
             onChargeChange={(newChargesConfig) => {
               console.group('Charge Changed')
               console.log(newChargesConfig)
