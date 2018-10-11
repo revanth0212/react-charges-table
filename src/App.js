@@ -19,7 +19,7 @@ const sampleData = {
       primaryText: 'Spinach Pizza Slice',
       secondaryText: 'Med',
       disabled: false,
-      value: 10,
+      value: -10,
     },
     {
       name: 'veggieBurger',

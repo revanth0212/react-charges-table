@@ -15,13 +15,18 @@ const defaultChargeInputStyle = {
 
 const defaultRootTextFieldStyle = { paddingLeft: '10px', width: '125px', margin: '-5px' }
 
-const convertValueToNumber = (value: any) => Number(value) || 0
+const convertValueToNumber = (value: any): number => Number(value) || 0
 
-const removeNonNumericChars = (value: string) => value.replace(/\D/g, '')
+const removeNonNumericChars = (value: string): string => value.replace(/[^0-9-+]/g, '')
 
-const formatUsingMask = (mask, number) => new Formatter(mask, { reverse: true }).apply(number)
+const formatUsingMask = (mask: string, rawNumber: string): string => {
+  const number = rawNumber.startsWith('-') || rawNumber.startsWith('+') ? rawNumber.slice(1) : rawNumber
+  const formattedValue = new Formatter(mask, { reverse: true }).apply(number)
+  return (Number(rawNumber) || 0) < 0 ? `-  ${formattedValue}` : formattedValue
+}
 
-const formatValue = (mask) => (number) => (isNil(mask) ? number.toString() : formatUsingMask(mask, number))
+const formatValue = (mask: string) => (number: string): string =>
+  (isNil(mask) ? number.toString() : formatUsingMask(mask, number))
 
 const formatValueWithPrecision = (precision: number) => (value: any): string => value.toFixed(precision)
 
@@ -46,7 +51,7 @@ const CurrencyField = ({
         name={`${name}-charge`}
         value={compose(formatValue(mask), removeNonNumericChars, formatValueWithPrecision(precision))(value)}
         disabled={disabled}
-        onChange={(event, newValue) => {
+        onChange={(event, newValue: string) => {
           compose(onChargeChange, convertValueToNumber, insertDecimal(precision), removeNonNumericChars)(newValue)
         }}
         style={rootTextFieldStyle}
