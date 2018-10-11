@@ -33,11 +33,13 @@ var convertValueToNumber = function convertValueToNumber(value) {
 };
 
 var removeNonNumericChars = function removeNonNumericChars(value) {
-  return value.replace(/\D/g, '');
+  return value.replace(/[^0-9-+]/g, '');
 };
 
-var formatUsingMask = function formatUsingMask(mask, number) {
-  return new _stringMask2.default(mask, { reverse: true }).apply(number);
+var formatUsingMask = function formatUsingMask(mask, rawNumber) {
+  var number = rawNumber.startsWith('-') || rawNumber.startsWith('+') ? rawNumber.slice(1) : rawNumber;
+  var formattedValue = new _stringMask2.default(mask, { reverse: true }).apply(number);
+  return (Number(rawNumber) || 0) < 0 ? '-  ' + formattedValue : formattedValue;
 };
 
 var formatValue = function formatValue(mask) {
